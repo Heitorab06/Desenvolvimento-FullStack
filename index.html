@@ -1,197 +1,264 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heitor Alves Barreto | Portfólio</title>
 
-    <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, Helvetica, sans-serif;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
 
-        body{
-            background:#f4f4f4;
-            color:#333;
-            line-height:1.6;
-        }
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    background-size:300% 300%;
+    animation:gradient 12s ease infinite;
+    transition:.4s;
+    overflow:hidden;
+}
 
-        header{
-            background:#1f2937;
-            color:#fff;
-            text-align:center;
-            padding:40px 20px;
-        }
+@keyframes gradient{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
 
-        header h1{
-            font-size:2.5rem;
-        }
+.card{
+    width:min(90%,850px);
+    background:rgba(255,255,255,.12);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:25px;
+    padding:50px;
+    color:white;
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+    position:relative;
+    animation:fadeUp 1s ease;
+}
 
-        header p{
-            margin-top:10px;
-            color:#d1d5db;
-        }
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
-        nav{
-            background:#111827;
-            display:flex;
-            justify-content:center;
-            gap:20px;
-            padding:15px;
-        }
+.toggle{
+    position:absolute;
+    top:25px;
+    right:25px;
+    border:none;
+    background:white;
+    color:#1e3a8a;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+    transition:.3s;
+}
 
-        nav a{
-            color:white;
-            text-decoration:none;
-            transition:.3s;
-        }
+.toggle:hover{
+    transform:rotate(180deg) scale(1.1);
+}
 
-        nav a:hover{
-            color:#60a5fa;
-        }
+.subtitle{
+    color:#bfdbfe;
+    margin-top:10px;
+    font-size:1.1rem;
+    letter-spacing:1px;
+}
 
-        .container{
-            width:90%;
-            max-width:1000px;
-            margin:30px auto;
-        }
+h1{
+    font-size:3rem;
+    margin-bottom:5px;
+}
 
-        section{
-            background:white;
-            margin-bottom:20px;
-            padding:25px;
-            border-radius:10px;
-            box-shadow:0 5px 15px rgba(0,0,0,.1);
-        }
+.line{
+    width:90px;
+    height:5px;
+    background:#60a5fa;
+    border-radius:10px;
+    margin:25px 0;
+}
 
-        h2{
-            margin-bottom:15px;
-            color:#1f2937;
-        }
+.about{
+    font-size:1.1rem;
+    line-height:1.8;
+    color:#e2e8f0;
+}
 
-        .projetos{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:20px;
-        }
+.info{
+    display:flex;
+    gap:20px;
+    margin-top:35px;
+    flex-wrap:wrap;
+}
 
-        .card{
-            border:1px solid #ddd;
-            border-radius:8px;
-            padding:20px;
-            transition:.3s;
-        }
+.box{
+    flex:1;
+    min-width:220px;
+    background:rgba(255,255,255,.08);
+    border-radius:15px;
+    padding:20px;
+    transition:.3s;
+}
 
-        .card:hover{
-            transform:translateY(-5px);
-            box-shadow:0 5px 15px rgba(0,0,0,.15);
-        }
+.box:hover{
+    transform:translateY(-8px);
+    background:rgba(255,255,255,.15);
+}
 
-        .card h3{
-            margin-bottom:10px;
-        }
+.box h3{
+    color:#93c5fd;
+    margin-bottom:10px;
+}
 
-        .btn{
-            display:inline-block;
-            margin-top:15px;
-            padding:10px 18px;
-            background:#2563eb;
-            color:white;
-            text-decoration:none;
-            border-radius:5px;
-            transition:.3s;
-        }
+footer{
+    margin-top:40px;
+    color:#cbd5e1;
+    text-align:center;
+    font-size:.9rem;
+}
 
-        .btn:hover{
-            background:#1d4ed8;
-        }
+.circle{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    z-index:-1;
+}
 
-        footer{
-            background:#1f2937;
-            color:white;
-            text-align:center;
-            padding:20px;
-            margin-top:30px;
-        }
+.c1{
+    width:300px;
+    height:300px;
+    left:-120px;
+    top:-120px;
+}
 
-        @media(max-width:600px){
-            header h1{
-                font-size:2rem;
-            }
+.c2{
+    width:220px;
+    height:220px;
+    right:-70px;
+    bottom:-70px;
+}
 
-            nav{
-                flex-direction:column;
-                align-items:center;
-            }
-        }
-    </style>
+body.light{
+    background:linear-gradient(135deg,#dbeafe,#f8fafc,#ffffff);
+}
+
+body.light .card{
+    background:rgba(255,255,255,.75);
+    color:#1e293b;
+}
+
+body.light .about,
+body.light footer{
+    color:#475569;
+}
+
+body.light .subtitle{
+    color:#2563eb;
+}
+
+body.light .box{
+    background:rgba(37,99,235,.08);
+}
+
+body.light .toggle{
+    background:#1e3a8a;
+    color:white;
+}
+
+@media(max-width:700px){
+
+.card{
+padding:35px;
+}
+
+h1{
+font-size:2.2rem;
+}
+
+.about{
+font-size:1rem;
+}
+
+}
+</style>
+
 </head>
-
 <body>
 
-<header>
-    <h1>Seu Nome</h1>
-    <p>Desenvolvedor Web | Front-end | Back-end</p>
-</header>
+<div class="circle c1"></div>
+<div class="circle c2"></div>
 
-<nav>
-    <a href="#sobre">Sobre</a>
-    <a href="#projetos">Projetos</a>
-    <a href="#contato">Contato</a>
-</nav>
+<div class="card">
 
-<div class="container">
+<button class="toggle" id="themeBtn">☀️</button>
 
-    <section id="sobre">
-        <h2>Sobre Mim</h2>
-        <p>
-            Olá! Sou um desenvolvedor apaixonado por tecnologia e criação de
-            soluções para a web. Tenho experiência com HTML, CSS, JavaScript,
-            PHP e bancos de dados.
-        </p>
-    </section>
+<h1>Heitor Alves Barreto</h1>
 
-    <section id="projetos">
-        <h2>Projetos</h2>
+<p class="subtitle">Estudante de Engenharia da Computação</p>
 
-        <div class="projetos">
+<div class="line"></div>
 
-            <div class="card">
-                <h3>Projeto 1</h3>
-                <p>Descrição breve do projeto.</p>
-                <a href="#" class="btn">Ver Projeto</a>
-            </div>
+<p class="about">
+Sou estudante de Engenharia da Computação apaixonado por tecnologia,
+Inteligência Artificial e desenvolvimento de software.
+Tenho interesse em Machine Learning, Ciência de Dados e Engenharia de IA,
+buscando constantemente aprender novas ferramentas e aplicar conhecimento
+em projetos que unem inovação e resolução de problemas.
+</p>
 
-            <div class="card">
-                <h3>Projeto 2</h3>
-                <p>Descrição breve do projeto.</p>
-                <a href="#" class="btn">Ver Projeto</a>
-            </div>
+<div class="info">
 
-            <div class="card">
-                <h3>Projeto 3</h3>
-                <p>Descrição breve do projeto.</p>
-                <a href="#" class="btn">Ver Projeto</a>
-            </div>
+<div class="box">
+<h3>🎓 Curso</h3>
+<p>Engenharia da Computação</p>
+</div>
 
-        </div>
-    </section>
-
-    <section id="contato">
-        <h2>Contato</h2>
-        <p><strong>Email:</strong> seuemail@email.com</p>
-        <p><strong>GitHub:</strong> github.com/seuusuario</p>
-        <p><strong>LinkedIn:</strong> linkedin.com/in/seuusuario</p>
-    </section>
+<div class="box">
+<h3>💡 Áreas de Interesse</h3>
+<p>Inteligência Artificial, Machine Learning, Ciência de Dados e Desenvolvimento de Software.</p>
+</div>
 
 </div>
 
 <footer>
-    <p>&copy; 2026 - Seu Nome. Todos os direitos reservados.</p>
+© <span id="year"></span> • Desenvolvido por Heitor Alves Barreto
 </footer>
+
+</div>
+
+<script>
+
+document.getElementById("year").textContent=new Date().getFullYear();
+
+const btn=document.getElementById("themeBtn");
+
+btn.onclick=()=>{
+
+document.body.classList.toggle("light");
+
+btn.textContent=
+document.body.classList.contains("light")
+?"🌙":"☀️";
+
+};
+
+</script>
 
 </body>
 </html>
