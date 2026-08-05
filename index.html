@@ -1,11 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Meu Portfólio</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            color:#333;
+            line-height:1.6;
+        }
+
+        header{
+            background:#1f2937;
+            color:#fff;
+            text-align:center;
+            padding:40px 20px;
+        }
+
+        header h1{
+            font-size:2.5rem;
+        }
+
+        header p{
+            margin-top:10px;
+            color:#d1d5db;
+        }
+
+        nav{
+            background:#111827;
+            display:flex;
+            justify-content:center;
+            gap:20px;
+            padding:15px;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            transition:.3s;
+        }
+
+        nav a:hover{
+            color:#60a5fa;
+        }
+
+        .container{
+            width:90%;
+            max-width:1000px;
+            margin:30px auto;
+        }
+
+        section{
+            background:white;
+            margin-bottom:20px;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 5px 15px rgba(0,0,0,.1);
+        }
+
+        h2{
+            margin-bottom:15px;
+            color:#1f2937;
+        }
+
+        .projetos{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:20px;
+        }
+
+        .card{
+            border:1px solid #ddd;
+            border-radius:8px;
+            padding:20px;
+            transition:.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-5px);
+            box-shadow:0 5px 15px rgba(0,0,0,.15);
+        }
+
+        .card h3{
+            margin-bottom:10px;
+        }
+
+        .btn{
+            display:inline-block;
+            margin-top:15px;
+            padding:10px 18px;
+            background:#2563eb;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+            transition:.3s;
+        }
+
+        .btn:hover{
+            background:#1d4ed8;
+        }
+
+        footer{
+            background:#1f2937;
+            color:white;
+            text-align:center;
+            padding:20px;
+            margin-top:30px;
+        }
+
+        @media(max-width:600px){
+            header h1{
+                font-size:2rem;
+            }
+
+            nav{
+                flex-direction:column;
+                align-items:center;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>aaaa</h1>
+
+<header>
+    <h1>Seu Nome</h1>
+    <p>Desenvolvedor Web | Front-end | Back-end</p>
+</header>
+
+<nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contato">Contato</a>
+</nav>
+
+<div class="container">
+
+    <section id="sobre">
+        <h2>Sobre Mim</h2>
+        <p>
+            Olá! Sou um desenvolvedor apaixonado por tecnologia e criação de
+            soluções para a web. Tenho experiência com HTML, CSS, JavaScript,
+            PHP e bancos de dados.
+        </p>
+    </section>
+
+    <section id="projetos">
+        <h2>Projetos</h2>
+
+        <div class="projetos">
+
+            <div class="card">
+                <h3>Projeto 1</h3>
+                <p>Descrição breve do projeto.</p>
+                <a href="#" class="btn">Ver Projeto</a>
+            </div>
+
+            <div class="card">
+                <h3>Projeto 2</h3>
+                <p>Descrição breve do projeto.</p>
+                <a href="#" class="btn">Ver Projeto</a>
+            </div>
+
+            <div class="card">
+                <h3>Projeto 3</h3>
+                <p>Descrição breve do projeto.</p>
+                <a href="#" class="btn">Ver Projeto</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <p><strong>Email:</strong> seuemail@email.com</p>
+        <p><strong>GitHub:</strong> github.com/seuusuario</p>
+        <p><strong>LinkedIn:</strong> linkedin.com/in/seuusuario</p>
+    </section>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 - Seu Nome. Todos os direitos reservados.</p>
+</footer>
+
 </body>
 </html>
