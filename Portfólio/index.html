@@ -1,264 +1,92 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Heitor Alves Barreto | Portfólio</title>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfólio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: "Segoe UI", Arial, sans-serif;
-}
+  </head>
+  <body>
+    <header>
+            <nav class="navbar navbar-expand-lg bg-body-secondary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Portfólio - Heitor Barreto</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#Sobre">Sobre</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#Projetos">Projetos</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#Contato">Contato</a>
+            </li>
 
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-    background-size:300% 300%;
-    animation:gradient 12s ease infinite;
-    transition:.4s;
-    overflow:hidden;
-}
+        </ul>
+        </div>
+    </div>
+    </nav>
+    </header>
+    <div id="inicio" class="container">
+        <img id="foto" src="foto.png" alt="Foto_Rosto">
+        <div id="Sobre">
+            <h1>Sobre mim</h1>
+            <p>Meu nome é Heitor Barreto e sou estudante de Engenharia da Computação na Universidade SENAI CIMATEC. Tenho interesse principalmente nas áreas de Inteligência Artificial, Ciência de Dados e Machine Learning, buscando sempre transformar o conhecimento adquirido na graduação em projetos práticos. Este portfólio reúne alguns dos meus projetos, refletindo minha trajetória de aprendizado e desenvolvimento na área de tecnologia.</p>
+        </div>
+    </div>
+    <h1 id="titulo-projetos">Projetos</h1>
+    <div id="Projetos" class="container">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Visão Computacional</h5>
+            <p class="card-text">Sistema de detecção de objetos utilizando YOLOv8 e um dataset personalizado.</p>
+            <a href="https://github.com/Heitorab06/yolo-custom-object-detection" target="_blank" class="card-link icone-git"><i class="bi bi-github"></i></a>
+        </div>
+    </div>
 
-@keyframes gradient{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Agentes de IA</h5>
+            <p class="card-text">Sistema multiagentes desenvolvido em Python para simular operações de um sistema bancário.</p>
+            <a href="https://github.com/Heitorab06/multiagentes-sistema-bancario" target="_blank" class="card-link icone-git"><i class="bi bi-github"></i></a>
+        </div>
+    </div>
 
-.card{
-    width:min(90%,850px);
-    background:rgba(255,255,255,.12);
-    backdrop-filter:blur(18px);
-    border:1px solid rgba(255,255,255,.2);
-    border-radius:25px;
-    padding:50px;
-    color:white;
-    box-shadow:0 20px 60px rgba(0,0,0,.35);
-    position:relative;
-    animation:fadeUp 1s ease;
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.toggle{
-    position:absolute;
-    top:25px;
-    right:25px;
-    border:none;
-    background:white;
-    color:#1e3a8a;
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    cursor:pointer;
-    font-size:18px;
-    transition:.3s;
-}
-
-.toggle:hover{
-    transform:rotate(180deg) scale(1.1);
-}
-
-.subtitle{
-    color:#bfdbfe;
-    margin-top:10px;
-    font-size:1.1rem;
-    letter-spacing:1px;
-}
-
-h1{
-    font-size:3rem;
-    margin-bottom:5px;
-}
-
-.line{
-    width:90px;
-    height:5px;
-    background:#60a5fa;
-    border-radius:10px;
-    margin:25px 0;
-}
-
-.about{
-    font-size:1.1rem;
-    line-height:1.8;
-    color:#e2e8f0;
-}
-
-.info{
-    display:flex;
-    gap:20px;
-    margin-top:35px;
-    flex-wrap:wrap;
-}
-
-.box{
-    flex:1;
-    min-width:220px;
-    background:rgba(255,255,255,.08);
-    border-radius:15px;
-    padding:20px;
-    transition:.3s;
-}
-
-.box:hover{
-    transform:translateY(-8px);
-    background:rgba(255,255,255,.15);
-}
-
-.box h3{
-    color:#93c5fd;
-    margin-bottom:10px;
-}
-
-footer{
-    margin-top:40px;
-    color:#cbd5e1;
-    text-align:center;
-    font-size:.9rem;
-}
-
-.circle{
-    position:absolute;
-    border-radius:50%;
-    background:rgba(255,255,255,.08);
-    z-index:-1;
-}
-
-.c1{
-    width:300px;
-    height:300px;
-    left:-120px;
-    top:-120px;
-}
-
-.c2{
-    width:220px;
-    height:220px;
-    right:-70px;
-    bottom:-70px;
-}
-
-body.light{
-    background:linear-gradient(135deg,#dbeafe,#f8fafc,#ffffff);
-}
-
-body.light .card{
-    background:rgba(255,255,255,.75);
-    color:#1e293b;
-}
-
-body.light .about,
-body.light footer{
-    color:#475569;
-}
-
-body.light .subtitle{
-    color:#2563eb;
-}
-
-body.light .box{
-    background:rgba(37,99,235,.08);
-}
-
-body.light .toggle{
-    background:#1e3a8a;
-    color:white;
-}
-
-@media(max-width:700px){
-
-.card{
-padding:35px;
-}
-
-h1{
-font-size:2.2rem;
-}
-
-.about{
-font-size:1rem;
-}
-
-}
-</style>
-
-</head>
-<body>
-
-<div class="circle c1"></div>
-<div class="circle c2"></div>
-
-<div class="card">
-
-<button class="toggle" id="themeBtn">☀️</button>
-
-<h1>Heitor Alves Barreto</h1>
-
-<p class="subtitle">Estudante de Engenharia da Computação</p>
-
-<div class="line"></div>
-
-<p class="about">
-Sou estudante de Engenharia da Computação apaixonado por tecnologia,
-Inteligência Artificial e desenvolvimento de software.
-Tenho interesse em Machine Learning, Ciência de Dados e Engenharia de IA,
-buscando constantemente aprender novas ferramentas e aplicar conhecimento
-em projetos que unem inovação e resolução de problemas.
-</p>
-
-<div class="info">
-
-<div class="box">
-<h3>🎓 Curso</h3>
-<p>Engenharia da Computação</p>
-</div>
-
-<div class="box">
-<h3>💡 Áreas de Interesse</h3>
-<p>Inteligência Artificial, Machine Learning, Ciência de Dados e Desenvolvimento de Software.</p>
-</div>
-
-</div>
-
-<footer>
-© <span id="year"></span> • Desenvolvido por Heitor Alves Barreto
-</footer>
-
-</div>
-
-<script>
-
-document.getElementById("year").textContent=new Date().getFullYear();
-
-const btn=document.getElementById("themeBtn");
-
-btn.onclick=()=>{
-
-document.body.classList.toggle("light");
-
-btn.textContent=
-document.body.classList.contains("light")
-?"🌙":"☀️";
-
-};
-
-</script>
-
-</body>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">Pipeline de Dados</h5>
+            <p class="card-text">Pipeline para coleta, processamento e análise de dados meteorológicos utilizando Python.</p>
+            <a href="https://github.com/Heitorab06/pipeline-completa-dados" class="card-link icone-git"><i class="bi bi-github"></i> Em desenvolvimento</a>
+        </div>
+    </div>
+    </div>
+    <footer id="Contato" class="bg-body-secondary">
+        <h1>Contato</h1>
+        <ul id="lista-contato">
+            <li>
+                <a href="https://www.linkedin.com/in/heitor-barreto-310344285/" target="_blank">
+                    <i class="bi bi-linkedin"></i> LinkedIn
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com" target="_blank">
+                    <i class="bi bi-github"></i> GitHub
+                </a>
+            </li>
+            <li>
+                <a href="mailto:habarreto06@gmail.com">
+                    <i class="bi bi-envelope"></i> Email
+                </a>
+            </li>
+        </ul>
+    </footer>    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
 </html>
