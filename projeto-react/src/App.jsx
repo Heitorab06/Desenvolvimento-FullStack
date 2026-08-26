@@ -1,122 +1,69 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+function app(){
+  const[nome, setNome] = useState("");
+  const[peso, setPeso] = useState("");
+  const[altura, setAltura] = useState("");
+  const[resultado, setResultado] = useState(null);
+  const[erro, setErro]=useState("");
 
-  return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+  function classificarIMC(imc){
+    if(imc<18.5) return "Abaixo do peso";
+    else if(imc<25) return "Peso ideal";
+    else if(imc<30) return "Sobrepeso";
+    else if(imc<35) return "Obesidade 1";
+    else if(imc<40) return "Obesidade 2";
+    else return "Obesidade 3";
+    
+  }
 
-      <div className="ticks"></div>
+  function calcular_IMC(evento){
+    const pesoConvertido =Number(peso.replace(",","."))
+    const alturaConvertido =Number(altura.replace(",","."))
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+    if(nome.trim() === "" || pesoConvertido<=0 || alturaConvertido<=0){
+      setErro("Preencha com valores válidos")
+      setResultado("null")
+    }
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+    setResultado({valor: (pesoConvertido/(alturaConvertido**2)).toFixed(2), classificacao: classificarIMC((pesoConvertido/(alturaConvertido**2)).toFixed(2))})
+  }
+
+  function limpaForm(){
+    setNome("")
+    setPeso("")
+    setAltura("")
+    setResultado(null)
+    setErro("")
+  }
+  return(
+    <main>
+      <h1>Calculadora de IMC</h1>
+      <p className='Introdução'>Informe seu peso e altura para calcular o IMC</p>
+      <form onSubmit={calcular_IMC}>
+        <div className='Campo'>
+          <input id='nome' type="text" placeholder='Digite o seu nome' value={nome} onChange={(evento)=> setNome(evento.target.value)}/>
+          <input id='peso' type="text" inputMode='decimal' placeholder='Digite seu peso' value={peso} onChange={(evento)=> setPeso(evento.target.value)}/>
+          <input id='altura' type="text" inputMode='decimal' placeholder='Digite sua altura' value={altura} onChange={(evento)=> setAltura(evento.target.value)}/>
+        </div>
+        <div className='button'>
+          <button type='submit'> Calcular IMC</button>
+          <br />
+          <button type='button'>Limpar</button>
+        </div>
+        {erro && <p className='msgerro'>{erro}</p>}
+        {resultado && (
+          <section className='resultado'>
+            <h2>Resultado</h2>
+            <p>Olá, <strong>{nome}</strong></p>
+            <br />
+            <p>Seu imc é <strong>{resultado.valor}</strong></p>
+          </section>
+        )}
+      </form>
+    </main>
   )
+  
 }
-
-export default App
+export default app
