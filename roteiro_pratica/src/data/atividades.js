@@ -2,6 +2,7 @@ export const listaAtividades = [
 
   {
     id: 1,
+    numero: 1,
     titulo: "Preparação do Ambiente e Inicialização do Projeto",
     descricao: "Instalação e verificação das ferramentas essenciais, criação do projeto base com Vite e limpeza da estrutura inicial.",
     tecnologias: ["Node.js", "npm", "Git", "Vite", "React"],
@@ -16,6 +17,7 @@ export const listaAtividades = [
   },
 {
     id: 2,
+    numero: 2,
     titulo: "Inicializar o repositório Git",
     descricao: "Inicialização do controle de versões local, configuração de branch principal e exclusão de arquivos desnecessários com .gitignore.",
     tecnologias: ["Git"],
@@ -30,6 +32,7 @@ export const listaAtividades = [
   },
   {
     id: 3,
+    numero: 3,
     titulo: "Construir a estrutura semântica",
     descricao: "Aplicação de elementos estruturais semânticos do HTML5 dentro do JSX, garantindo acessibilidade e hierarquia correta de títulos.",
     tecnologias: ["HTML5 Semântico", "React JSX"],
@@ -43,6 +46,7 @@ export const listaAtividades = [
   },
   {
     id: 4,
+    numero: 4,
     titulo: "Criar cabeçalho e identidade",
     descricao: "Desenvolvimento da apresentação visual do autor com informações institucionais, avatar acessível e botão de ancoragem para os cards.",
     tecnologias: ["HTML5", "CSS3", "React JSX"],
@@ -56,6 +60,7 @@ export const listaAtividades = [
   },
   {
     id: 5,
+    numero: 5,
     titulo: "Criar menu de navegação",
     descricao: "Implementação de menu de navegação por âncoras com rolagem suave entre as seções e indicadores visuais de foco acessíveis.",
     tecnologias: ["HTML5", "CSS3", "Acessibilidade"],
@@ -69,6 +74,7 @@ export const listaAtividades = [
   },
   {
     id: 6,
+    numero: 6,
     titulo: "Definir o sistema visual em CSS",
     descricao: "Criação de um Design System base utilizando CSS Custom Properties (variáveis) para cores, tipografia, espaçamentos e normalização.",
     tecnologias: ["CSS3 Variables", "Design System"],
@@ -82,6 +88,7 @@ export const listaAtividades = [
   },
   {
     id: 7,
+    numero: 7,
     titulo: "Construir cartões de atividades",
     descricao: "Desenvolvimento do layout base do card contemplando número, textos, tecnologias e estados interativos com foco em contraste.",
     tecnologias: ["CSS3", "UI Design"],
@@ -95,6 +102,7 @@ export const listaAtividades = [
   },
   {
     id: 8,
+    numero: 8,
     titulo: "Organizar o layout com Flexbox",
     descricao: "Alinhamento e distribuição unidimensional de elementos no cabeçalho, menu e ações com Flexbox.",
     tecnologias: ["CSS Flexbox"],
@@ -108,6 +116,7 @@ export const listaAtividades = [
   },
   {
     id: 9,
+    numero: 9,
     titulo: "Organizar atividades com CSS Grid",
     descricao: "Construção de uma malha bidimensional responsiva para os 30 cartões utilizando regras dinâmicas de repetição sem largura fixa.",
     tecnologias: ["CSS Grid"],
@@ -121,6 +130,7 @@ export const listaAtividades = [
   },
   {
     id: 10,
+    numero: 10,
     titulo: "Tornar a homepage responsiva",
     descricao: "Adaptação da interface para múltiplos viewports com Media Queries, validando layout em dispositivos móveis, tablets e desktop.",
     tecnologias: ["CSS3 Media Queries", "Design Responsivo"],
@@ -134,6 +144,7 @@ export const listaAtividades = [
   },
   {
     id: 11,
+    numero: 11,
     titulo: "Criar o componente Cabecalho",
     descricao: "Refatoração e isolamento do cabeçalho da aplicação em um componente funcional React com responsabilidade única.",
     tecnologias: ["React", "Componentização"],
@@ -147,6 +158,7 @@ export const listaAtividades = [
   },
   {
     id: 12,
+    numero: 12,
     titulo: "Criar o componente Rodape",
     descricao: "Desenvolvimento de componente reutilizável para o rodapé com cálculo dinâmico do ano corrente e atalho de retorno ao topo.",
     tecnologias: ["React", "JavaScript ES6"],
@@ -160,6 +172,7 @@ export const listaAtividades = [
   },
   {
     id: 13,
+    numero: 13,
     titulo: "Criar o componente CardAtividade",
     descricao: "Criação do componente reutilizável de cartão configurado para receber propriedades dinâmicas e renderizar instâncias distintas.",
     tecnologias: ["React Props"],
@@ -173,19 +186,21 @@ export const listaAtividades = [
   },
   {
     id: 14,
+    numero: 14,
     titulo: "Modelar os dados das atividades",
     descricao: "Separação entre a camada de dados e a camada visual, estruturando as informações das atividades em um array de objetos dedicado.",
     tecnologias: ["JavaScript", "Arquitetura de Software"],
     link: "#atividade-14",
     versoes: [
-      "Arquivo de dados: src/data/atividades.js",
-      "Estrutura do schema: id, titulo, descricao, tecnologias, status, link",
-      "Camada de apresentação: Dados consumidos de forma desacoplada"
+      "Objeto de exemplo: { id: 14, numero: 14, titulo: 'Modelar dados', tecnologia: 'JavaScript', status: 'Concluída', link: '#...' }",
+      "Separação de responsabilidades: Conteúdo isolado da camada visual em src/data/atividades.js",
+      "Consumo: Importação e renderização dinâmica na seção de atividades."
     ],
     status: "Modelagem de dados isolada da camada de apresentação."
   },
   {
     id: 15,
+    numero: 15,
     titulo: "Renderizar a lista com map",
     descricao: "Geração dinâmica dos 30 cartões na tela iterando sobre o array de dados com o método map e chaves de identificação únicas.",
     tecnologias: ["React", "JavaScript ES6 (Array.map)"],
@@ -199,6 +214,7 @@ export const listaAtividades = [
   },
   {
     id: 16,
+    numero: 16,
     titulo: "Mostrar status condicional",
     descricao: "Aplicação de estilização e renderização condicional baseada no estado de progresso de cada atividade do projeto.",
     tecnologias: ["React", "Renderização Condicional"],
@@ -212,6 +228,7 @@ export const listaAtividades = [
   },
   {
     id: 17,
+    numero: 17,
     titulo: "Criar filtro por tecnologia",
     descricao: "Filtragem reativa dos cartões exibidos na tela com base na tecnologia selecionada através de botões de controle e useState.",
     tecnologias: ["React (useState)", "Imutabilidade"],
@@ -225,6 +242,7 @@ export const listaAtividades = [
   },
   {
     id: 18,
+    numero: 18,
     titulo: "Criar busca por texto",
     descricao: "Campo de pesquisa em tempo real controlado via estado que filtra atividades por título e descrição com feedback de lista vazia.",
     tecnologias: ["React (Controlled Components)", "Eventos"],
@@ -238,6 +256,7 @@ export const listaAtividades = [
   },
   {
     id: 19,
+    numero: 19,
     titulo: "Criar contador de progresso",
     descricao: "Cálculo e exibição em tempo real do número de atividades concluídas utilizando valores derivados dos dados sem redundância de estado.",
     tecnologias: ["React", "Lógica de Estado"],
@@ -251,6 +270,7 @@ export const listaAtividades = [
   },
   {
     id: 20,
+    numero: 20,
     titulo: "Criar barra de progresso",
     descricao: "Componente visual acessível que representa graficamente a porcentagem total de conclusão das entregas do portfólio.",
     tecnologias: ["React", "CSS3", "Acessibilidade (ARIA)"],
@@ -264,6 +284,7 @@ export const listaAtividades = [
   },
   {
     id: 21,
+    numero: 21,
     titulo: "Criar modal de detalhes",
     descricao: "Janela modal acessível para exibição aprofundada dos detalhes da atividade ao clicar na ação correspondente do cartão.",
     tecnologias: ["React Portal / Component State", "Eventos de Teclado"],
@@ -277,6 +298,7 @@ export const listaAtividades = [
   },
   {
     id: 22,
+    numero: 22,
     titulo: "Criar formulário de contato",
     descricao: "Formulário com campos controlados, validação nativa de preenchimento e feedback simulado de envio sem recarregamento de página.",
     tecnologias: ["React Form Events", "Validação HTML5"],
@@ -290,6 +312,7 @@ export const listaAtividades = [
   },
   {
     id: 23,
+    numero: 23,
     titulo: "Implementar alternância de tema",
     descricao: "Sistema de alternância dinâmica entre tema claro (light) e escuro (dark) gerenciado via estado React e classes raiz.",
     tecnologias: ["React (useState)", "CSS Variables"],
@@ -303,6 +326,7 @@ export const listaAtividades = [
   },
   {
     id: 24,
+    numero: 24,
     titulo: "Persistir preferência local",
     descricao: "Gravação e leitura da preferência de tema do usuário no armazenamento do navegador através da Web Storage API.",
     tecnologias: ["Web Storage (localStorage)", "React (useEffect)"],
@@ -316,6 +340,7 @@ export const listaAtividades = [
   },
   {
     id: 25,
+    numero: 25,
     titulo: "Adicionar seção Sobre",
     descricao: "Componente dedicado à apresentação do perfil do desenvolvedor, competências técnicas praticadas e links de contato profissional.",
     tecnologias: ["React", "HTML Semântico"],
@@ -329,6 +354,7 @@ export const listaAtividades = [
   },
   {
     id: 26,
+    numero: 26,
     titulo: "Revisar acessibilidade",
     descricao: "Auditoria estrutural e correções para assegurar navegabilidade por teclado, leitura de tela e conformidade com critérios WCAG.",
     tecnologias: ["Acessibilidade Web (WCAG)", "ARIA"],
@@ -342,6 +368,7 @@ export const listaAtividades = [
   },
   {
     id: 27,
+    numero: 27,
     titulo: "Criar o README do repositório",
     descricao: "Documentação completa do projeto orientando sobre objetivos, pré-requisitos, instalação, arquitetura de pastas e autoria.",
     tecnologias: ["Markdown", "Git"],
@@ -355,6 +382,7 @@ export const listaAtividades = [
   },
   {
     id: 28,
+    numero: 28,
     titulo: "Organizar o histórico Git",
     descricao: "Validação do fluxo de versionamento, inspeção de integridade dos commits sem arquivos indevidos e geração da tag de release v1.0.0.",
     tecnologias: ["Git CLI", "Versionamento Semântico"],
@@ -368,6 +396,7 @@ export const listaAtividades = [
   },
   {
     id: 29,
+    numero: 29,
     titulo: "Enviar o projeto ao repositório remoto",
     descricao: "Vinculação do repositório local a uma plataforma remota, envio das branches de trabalho e validação pública dos arquivos.",
     tecnologias: ["Git Remoto", "GitHub / GitLab"],
@@ -381,6 +410,7 @@ export const listaAtividades = [
   },
   {
     id: 30,
+    numero: 30,
     titulo: "Publicar e validar na Vercel",
     descricao: "Implantação contínua da aplicação na plataforma Vercel, auditoria funcional dos recursos publicados e link final homologado.",
     tecnologias: ["Vercel", "CI/CD", "Deploy"],
