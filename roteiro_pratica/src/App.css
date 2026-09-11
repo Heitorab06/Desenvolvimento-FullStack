@@ -96,6 +96,21 @@
   color: var(--primary);
 }
 
+.main-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.grid-atividades {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
 .rodape-container {
   text-align: center;
   margin-top: 3rem;

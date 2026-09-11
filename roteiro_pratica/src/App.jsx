@@ -33,7 +33,7 @@ export default function App() {
         <a href="#contato" className="nav-link">Contato</a>
       </nav>
 
-      <main style={{ maxWidth: '700px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+      <main className="main-container">
         {/* Seção Sobre */}
         <section id="sobre" style={{
           backgroundColor: '#ffffff',
@@ -53,18 +53,20 @@ export default function App() {
           <h2 style={{ fontSize: '1.4rem', color: '#1f2937', marginBottom: '1.25rem' }}>
             Lista de Atividades (1 a 30)
           </h2>
-          {listaAtividades.map((item) => (
-            <Card
-              key={item.id}
-              id={item.id}
-              titulo={item.titulo}
-              descricao={item.descricao}
-              tecnologias={item.tecnologias}
-              link={item.link}
-              versoes={item.versoes}
-            >
-            </Card>
-          ))}
+          <div className="grid-atividades">
+            {listaAtividades.map((item) => (
+              <Card
+                key={item.id}
+                id={item.id}
+                titulo={item.titulo}
+                descricao={item.descricao}
+                tecnologias={item.tecnologias}
+                link={item.link}
+                versoes={item.versoes}
+              >
+              </Card>
+            ))}
+          </div>
         </section>
 
         {/* Seção Contato */}
