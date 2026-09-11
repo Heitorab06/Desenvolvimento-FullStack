@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Cabecalho from './components/Cabecalho';
+import Rodape from './components/Rodape';
 import Card from './components/Card';
 import { listaAtividades } from './data/atividades';
 
@@ -69,16 +70,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer style={{
-        textAlign: 'center',
-        marginTop: '3rem',
-        padding: '1.5rem',
-        borderTop: '1px solid #e5e7eb',
-        color: '#6b7280',
-        fontSize: '0.875rem'
-      }}>
-        <p>© 2026 Heitor Barreto - Universidade Senai Cimatec</p>
-      </footer>
+      <Rodape />
     </div>
   );
 }
