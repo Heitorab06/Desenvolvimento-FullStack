@@ -63,25 +63,43 @@ export default function App() {
         </a>
       </header>
 
-      <nav style={{
+      <nav aria-label="Navegação principal" style={{
         display: 'flex',
         justifyContent: 'center',
         gap: '1.5rem',
         marginBottom: '2rem',
-        padding: '0.75rem',
+        padding: '0.75rem 1.5rem',
         backgroundColor: '#ffffff',
         borderRadius: '8px',
         maxWidth: '700px',
         margin: '0 auto 2rem auto',
-        border: '1px solid #e5e7eb'
+        border: '1px solid #e5e7eb',
+        boxShadow: '0 1px 2px rgba(0, 0, 0, 0.05)'
       }}>
         <a href="#inicio" style={{ color: '#2563eb', textDecoration: 'none', fontWeight: 'bold' }}>Início</a>
-        <a href="#atividades" style={{ color: '#4b5563', textDecoration: 'none' }}>Atividades</a>
+        <a href="#sobre" style={{ color: '#4b5563', textDecoration: 'none', fontWeight: '500' }}>Sobre</a>
+        <a href="#atividades" style={{ color: '#4b5563', textDecoration: 'none', fontWeight: '500' }}>Atividades</a>
+        <a href="#contato" style={{ color: '#4b5563', textDecoration: 'none', fontWeight: '500' }}>Contato</a>
       </nav>
 
-      <main style={{ maxWidth: '700px', margin: '0 auto' }}>
+      <main style={{ maxWidth: '700px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+        {/* Seção Sobre */}
+        <section id="sobre" style={{
+          backgroundColor: '#ffffff',
+          borderRadius: '12px',
+          padding: '1.5rem',
+          border: '1px solid #e5e7eb',
+          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)'
+        }}>
+          <h2 style={{ fontSize: '1.4rem', color: '#111827', marginTop: 0 }}>Sobre o Projeto</h2>
+          <p style={{ color: '#4b5563', lineHeight: '1.6', fontSize: '0.95rem' }}>
+            Este portfólio acadêmico reúne 30 entregas práticas desenvolvidas na disciplina de Desenvolvimento Full Stack, abordando desde os fundamentos de marcação semântica e estilização responsiva até a componentização e gerenciamento de estado em React.
+          </p>
+        </section>
+
+        {/* Seção Atividades */}
         <section id="atividades">
-          <h2 style={{ fontSize: '1.5rem', color: '#1f2937', marginBottom: '1rem' }}>
+          <h2 style={{ fontSize: '1.4rem', color: '#1f2937', marginBottom: '1.25rem' }}>
             Lista de Atividades (1 a 30)
           </h2>
           {listaAtividades.map((item) => (
@@ -96,6 +114,20 @@ export default function App() {
             >
             </Card>
           ))}
+        </section>
+
+        {/* Seção Contato */}
+        <section id="contato" style={{
+          backgroundColor: '#ffffff',
+          borderRadius: '12px',
+          padding: '1.5rem',
+          border: '1px solid #e5e7eb',
+          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)'
+        }}>
+          <h2 style={{ fontSize: '1.4rem', color: '#111827', marginTop: 0 }}>Contato</h2>
+          <p style={{ color: '#4b5563', fontSize: '0.95rem' }}>
+            Heitor Barreto — <a href="mailto:habarreto06@gmail.com" style={{ color: '#2563eb' }}>habarreto06@gmail.com</a>
+          </p>
         </section>
       </main>
 
