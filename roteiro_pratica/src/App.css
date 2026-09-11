@@ -120,6 +120,46 @@
   font-size: 0.875rem;
 }
 
+/* Filtros de Tecnologia (Card 17) */
+.filtros-container {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.filtros-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-right: 0.25rem;
+}
+
+.btn-filtro {
+  background-color: var(--bg-card);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-filtro:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-filtro.ativo {
+  background-color: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  font-weight: 600;
+}
+
 /* Estilos dos Cartões de Atividades (Card 7) */
 .card-atividade {
   background-color: var(--bg-card);
