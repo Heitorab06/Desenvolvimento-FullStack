@@ -206,9 +206,9 @@ export const listaAtividades = [
     tecnologias: ["React", "JavaScript ES6 (Array.map)"],
     link: "#atividade-15",
     versoes: [
-      "Método de iteração: Array.prototype.map",
-      "Propriedade de rastreamento: key={item.id} exclusiva e estável",
-      "Escopo de renderização: Sequência contínua de 1 a 30 itens"
+      "Array: Estrutura que armazena os dados brutos de cada atividade sequencialmente.",
+      "Map: Método que itera sobre o array retornando um componente CardAtividade para cada item.",
+      "Key: Propriedade exclusiva (key={item.id}) que garante identificação estável no React DOM."
     ],
     status: "Renderização dinâmica de lista implementada com chave estável."
   },
