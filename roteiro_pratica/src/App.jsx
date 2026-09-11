@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Cabecalho from './components/Cabecalho';
 import Rodape from './components/Rodape';
-import Card from './components/Card';
+import CardAtividade from './components/CardAtividade';
 import { listaAtividades } from './data/atividades';
 
 export default function App() {
@@ -41,16 +41,16 @@ export default function App() {
           </h2>
           <div className="grid-atividades">
             {listaAtividades.map((item) => (
-              <Card
+              <CardAtividade
                 key={item.id}
-                id={item.id}
+                numero={item.numero || item.id}
                 titulo={item.titulo}
                 descricao={item.descricao}
                 tecnologias={item.tecnologias}
                 link={item.link}
+                status={item.status}
                 versoes={item.versoes}
-              >
-              </Card>
+              />
             ))}
           </div>
         </section>
