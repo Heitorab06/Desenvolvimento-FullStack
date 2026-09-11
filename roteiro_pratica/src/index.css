@@ -28,6 +28,23 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
 }
 
+/* Tema Escuro (Card 23) */
+[data-theme="dark"] {
+  --bg-page: #0f172a;
+  --bg-card: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --primary-light: #1e3a8a;
+
+  --status-concluida-bg: #064e3b;
+  --status-concluida-text: #6ee7b7;
+  --status-andamento-bg: #78350f;
+  --status-andamento-text: #fde68a;
+  --status-planejada-bg: #1e293b;
+  --status-planejada-text: #cbd5e1;
+}
+
 * {
   box-sizing: border-box;
 }

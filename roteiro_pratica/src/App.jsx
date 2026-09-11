@@ -8,6 +8,7 @@ import Contato from './components/Contato';
 import { listaAtividades } from './data/atividades';
 
 export default function App() {
+  const [tema, setTema] = useState('light');
   const [filtroTecnologia, setFiltroTecnologia] = useState('Todos');
   const [busca, setBusca] = useState('');
   const [atividadeModal, setAtividadeModal] = useState(null);
@@ -33,7 +34,19 @@ export default function App() {
   });
 
   return (
-    <div className="app-container">
+    <div className="app-container" data-theme={tema}>
+      {/* Barra Superior com Alternador de Tema (Card 23) */}
+      <div className="top-bar">
+        <button
+          type="button"
+          className="btn-tema"
+          onClick={() => setTema(prev => prev === 'light' ? 'dark' : 'light')}
+          aria-label="Alternar entre tema claro e escuro"
+        >
+          {tema === 'light' ? '🌙 Modo Escuro' : '☀️ Modo Claro'}
+        </button>
+      </div>
+
       {/* Cabeçalho */}
       <Cabecalho />
 

@@ -72,6 +72,34 @@
   background-color: var(--primary-hover);
 }
 
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1100px;
+  margin: 0 auto 1rem auto;
+  width: 100%;
+}
+
+.btn-tema {
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  padding: 0.45rem 0.9rem;
+  border-radius: var(--radius-md);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-tema:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
 .nav-principal {
   display: flex;
   justify-content: center;
