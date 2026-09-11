@@ -61,7 +61,10 @@ body {
   line-height: 1.5;
 }
 
-a:focus-visible, button:focus-visible {
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
   outline: 3px solid var(--primary);
   outline-offset: 2px;
 }

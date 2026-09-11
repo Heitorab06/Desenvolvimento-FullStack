@@ -360,9 +360,11 @@ export const listaAtividades = [
     tecnologias: ["Acessibilidade Web (WCAG)", "ARIA"],
     link: "#atividade-26",
     versoes: [
-      "Hierarquia: Revisão de headings e associação de labels a inputs",
-      "Mídias: Atributos alt descritivos em todas as imagens",
-      "Navegabilidade: Indicadores de foco visíveis e checagem de contraste"
+      "1. Headings: Hierarquia estrita com único <h1>, seções em <h2> e cartões em <h3>.",
+      "2. Formulários: Labels associados via htmlFor a todos os inputs e textareas com required.",
+      "3. Indicadores visuais: Status identificados com texto descritivo e ícones, não apenas cor.",
+      "4. Foco acessível: :focus-visible implementado globalmente para links, botões e campos de entrada.",
+      "5. Navegação por teclado: Modal acessível com suporte à tecla Escape e backdrop responsivo."
     ],
     status: "Concluída"
   },
