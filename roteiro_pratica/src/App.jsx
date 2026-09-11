@@ -5,6 +5,7 @@ import Rodape from './components/Rodape';
 import CardAtividade from './components/CardAtividade';
 import ModalDetalhes from './components/ModalDetalhes';
 import Contato from './components/Contato';
+import Sobre from './components/Sobre';
 import { listaAtividades } from './data/atividades';
 
 const CHAVE_TEMA = 'tema_portfolio';
@@ -76,19 +77,8 @@ export default function App() {
       </nav>
 
       <main className="main-container">
-        {/* Seção Sobre */}
-        <section id="sobre" style={{
-          backgroundColor: '#ffffff',
-          borderRadius: '12px',
-          padding: '1.5rem',
-          border: '1px solid #e5e7eb',
-          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)'
-        }}>
-          <h2 style={{ fontSize: '1.4rem', color: '#111827', marginTop: 0 }}>Sobre o Projeto</h2>
-          <p style={{ color: '#4b5563', lineHeight: '1.6', fontSize: '0.95rem' }}>
-            Este portfólio acadêmico reúne 30 entregas práticas desenvolvidas na disciplina de Desenvolvimento Full Stack, abordando desde os fundamentos de marcação semântica e estilização responsiva até a componentização e gerenciamento de estado em React.
-          </p>
-        </section>
+        {/* Seção Sobre (Card 25) */}
+        <Sobre />
 
         {/* Seção Atividades */}
         <section id="atividades">
