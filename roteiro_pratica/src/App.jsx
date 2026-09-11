@@ -4,6 +4,7 @@ import Cabecalho from './components/Cabecalho';
 import Rodape from './components/Rodape';
 import CardAtividade from './components/CardAtividade';
 import ModalDetalhes from './components/ModalDetalhes';
+import Contato from './components/Contato';
 import { listaAtividades } from './data/atividades';
 
 export default function App() {
@@ -137,19 +138,8 @@ export default function App() {
           )}
         </section>
 
-        {/* Seção Contato */}
-        <section id="contato" style={{
-          backgroundColor: '#ffffff',
-          borderRadius: '12px',
-          padding: '1.5rem',
-          border: '1px solid #e5e7eb',
-          boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)'
-        }}>
-          <h2 style={{ fontSize: '1.4rem', color: '#111827', marginTop: 0 }}>Contato</h2>
-          <p style={{ color: '#4b5563', fontSize: '0.95rem' }}>
-            Heitor Barreto — <a href="mailto:habarreto06@gmail.com" style={{ color: '#2563eb' }}>habarreto06@gmail.com</a>
-          </p>
-        </section>
+        {/* Seção Contato (Card 22) */}
+        <Contato />
       </main>
 
       <Rodape />
