@@ -220,6 +220,22 @@
   color: var(--primary);
 }
 
+.barra-trilha {
+  width: 100%;
+  height: 10px;
+  background-color: var(--border-color);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-top: 0.6rem;
+}
+
+.barra-preenchimento {
+  height: 100%;
+  background-color: var(--primary);
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
 /* Estilos dos Cartões de Atividades (Card 7) */
 .card-atividade {
   background-color: var(--bg-card);

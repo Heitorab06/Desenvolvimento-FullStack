@@ -11,9 +11,10 @@ export default function App() {
 
   const tecnologiasFiltro = ['Todos', 'HTML', 'CSS', 'React', 'Git', 'Vercel'];
 
-  // Contador de progresso derivado (Card 19)
+  // Contador e Barra de Progresso (Cards 19 e 20)
   const totalAtividades = listaAtividades.length;
   const concluidas = listaAtividades.filter((item) => item.status === 'Concluída').length;
+  const percentual = totalAtividades > 0 ? Math.round((concluidas / totalAtividades) * 100) : 0;
 
   const atividadesFiltradas = listaAtividades.filter((item) => {
     const matchTec =
@@ -62,11 +63,24 @@ export default function App() {
             Lista de Atividades (1 a 30)
           </h2>
 
-          {/* Contador de Progresso (Card 19) */}
+          {/* Contador e Barra de Progresso (Cards 19 e 20) */}
           <div className="progresso-container">
             <div className="progresso-cabecalho">
               <span className="progresso-titulo">Progresso das Atividades</span>
-              <span className="progresso-contador">{concluidas} concluídas de {totalAtividades}</span>
+              <span className="progresso-contador">{concluidas} de {totalAtividades} concluídas ({percentual}%)</span>
+            </div>
+            <div
+              className="barra-trilha"
+              role="progressbar"
+              aria-valuenow={percentual}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-label={`Progresso geral do projeto: ${percentual}%`}
+            >
+              <div
+                className="barra-preenchimento"
+                style={{ width: `${percentual}%` }}
+              />
             </div>
           </div>
 
