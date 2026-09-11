@@ -7,14 +7,21 @@ import { listaAtividades } from './data/atividades';
 
 export default function App() {
   const [filtroTecnologia, setFiltroTecnologia] = useState('Todos');
+  const [busca, setBusca] = useState('');
 
   const tecnologiasFiltro = ['Todos', 'HTML', 'CSS', 'React', 'Git', 'Vercel'];
 
   const atividadesFiltradas = listaAtividades.filter((item) => {
-    if (filtroTecnologia === 'Todos') return true;
-    return item.tecnologias.some((tec) =>
-      tec.toLowerCase().includes(filtroTecnologia.toLowerCase())
-    );
+    const matchTec =
+      filtroTecnologia === 'Todos' ||
+      item.tecnologias.some((tec) =>
+        tec.toLowerCase().includes(filtroTecnologia.toLowerCase())
+      );
+    const termoBusca = busca.toLowerCase();
+    const matchBusca =
+      item.titulo.toLowerCase().includes(termoBusca) ||
+      item.descricao.toLowerCase().includes(termoBusca);
+    return matchTec && matchBusca;
   });
 
   return (
@@ -51,6 +58,18 @@ export default function App() {
             Lista de Atividades (1 a 30)
           </h2>
 
+          {/* Busca por Texto (Card 18) */}
+          <div className="busca-container">
+            <input
+              type="text"
+              placeholder="Buscar por título ou descrição..."
+              value={busca}
+              onChange={(e) => setBusca(e.target.value)}
+              className="input-busca"
+              aria-label="Buscar atividades"
+            />
+          </div>
+
           {/* Filtro por Tecnologia (Card 17) */}
           <div className="filtros-container">
             <span className="filtros-label">Filtrar por tecnologia:</span>
@@ -66,20 +85,27 @@ export default function App() {
             ))}
           </div>
 
-          <div className="grid-atividades">
-            {atividadesFiltradas.map((item) => (
-              <CardAtividade
-                key={item.id}
-                numero={item.numero || item.id}
-                titulo={item.titulo}
-                descricao={item.descricao}
-                tecnologias={item.tecnologias}
-                link={item.link}
-                status={item.status}
-                versoes={item.versoes}
-              />
-            ))}
-          </div>
+          {/* Lista de Atividades ou Estado Vazio */}
+          {atividadesFiltradas.length > 0 ? (
+            <div className="grid-atividades">
+              {atividadesFiltradas.map((item) => (
+                <CardAtividade
+                  key={item.id}
+                  numero={item.numero || item.id}
+                  titulo={item.titulo}
+                  descricao={item.descricao}
+                  tecnologias={item.tecnologias}
+                  link={item.link}
+                  status={item.status}
+                  versoes={item.versoes}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="estado-vazio">
+              <p>Nenhuma atividade encontrada para "{busca}".</p>
+            </div>
+          )}
         </section>
 
         {/* Seção Contato */}

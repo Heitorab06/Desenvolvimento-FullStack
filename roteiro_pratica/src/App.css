@@ -160,6 +160,39 @@
   font-weight: 600;
 }
 
+/* Busca e Estado Vazio (Card 18) */
+.busca-container {
+  margin-bottom: 1.5rem;
+}
+
+.input-busca {
+  width: 100%;
+  max-width: 450px;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-card);
+  color: var(--text-main);
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-busca:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.estado-vazio {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border-color);
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
 /* Estilos dos Cartões de Atividades (Card 7) */
 .card-atividade {
   background-color: var(--bg-card);
