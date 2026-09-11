@@ -390,11 +390,11 @@ export const listaAtividades = [
     tecnologias: ["Git CLI", "Versionamento Semântico"],
     link: "#atividade-28",
     versoes: [
-      "Auditoria do histórico: Commits descritivos inspecionados com git log",
-      "Limpeza: Confirmação da ausência de arquivos temporários e dependências",
-      "Marcação de versão: Tag local v1.0.0 criada com sucesso"
+      "Branch principal: main validada e mantida como padrão.",
+      "Auditoria de versionamento: Histórico limpo com commits semânticos por card.",
+      "Release tag: Tag local v1.0.0 criada marcando a versão estável da entrega."
     ],
-    status: "Em andamento"
+    status: "Concluída"
   },
   {
     id: 29,
