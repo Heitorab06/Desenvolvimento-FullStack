@@ -204,3 +204,46 @@
 .card-botao-acao:hover {
   background-color: var(--primary-hover);
 }
+
+/* Responsividade (Card 10) */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem 0.75rem;
+  }
+
+  .cabecalho-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .cabecalho-titulo {
+    font-size: 1.6rem;
+  }
+
+  .nav-principal {
+    gap: 1rem;
+    padding: 0.6rem 1rem;
+    flex-wrap: wrap;
+  }
+
+  .grid-atividades {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cabecalho-titulo {
+    font-size: 1.35rem;
+  }
+
+  .cabecalho-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 1.35rem;
+  }
+
+  .nav-principal {
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+}
