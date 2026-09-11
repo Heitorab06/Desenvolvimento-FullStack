@@ -61,9 +61,13 @@ export default function CardAtividade({
       )}
 
       <div>
-        <a href={link || '#'} className="card-botao-acao">
+        <button
+          type="button"
+          className="card-botao-acao"
+          onClick={onVerDetalhes}
+        >
           Visualizar Atividade
-        </a>
+        </button>
       </div>
     </article>
   );

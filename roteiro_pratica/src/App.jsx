@@ -3,11 +3,13 @@ import './App.css'
 import Cabecalho from './components/Cabecalho';
 import Rodape from './components/Rodape';
 import CardAtividade from './components/CardAtividade';
+import ModalDetalhes from './components/ModalDetalhes';
 import { listaAtividades } from './data/atividades';
 
 export default function App() {
   const [filtroTecnologia, setFiltroTecnologia] = useState('Todos');
   const [busca, setBusca] = useState('');
+  const [atividadeModal, setAtividadeModal] = useState(null);
 
   const tecnologiasFiltro = ['Todos', 'HTML', 'CSS', 'React', 'Git', 'Vercel'];
 
@@ -124,6 +126,7 @@ export default function App() {
                   link={item.link}
                   status={item.status}
                   versoes={item.versoes}
+                  onVerDetalhes={() => setAtividadeModal(item)}
                 />
               ))}
             </div>
@@ -150,6 +153,14 @@ export default function App() {
       </main>
 
       <Rodape />
+
+      {/* Modal de Detalhes (Card 21) */}
+      {atividadeModal && (
+        <ModalDetalhes
+          atividade={atividadeModal}
+          onClose={() => setAtividadeModal(null)}
+        />
+      )}
     </div>
   );
 }
