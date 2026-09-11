@@ -416,12 +416,12 @@ export const listaAtividades = [
     titulo: "Publicar e validar na Vercel",
     descricao: "Implantação contínua da aplicação na plataforma Vercel, auditoria funcional dos recursos publicados e link final homologado.",
     tecnologias: ["Vercel", "CI/CD", "Deploy"],
-    link: "#atividade-30",
+    link: "https://desenvolvimento-full-stack-roteiro.vercel.app",
     versoes: [
-      "Hospedagem: Projeto importado e compilado com sucesso na Vercel",
-      "Auditoria funcional: Teste de filtros, busca, responsividade e modais",
-      "Homologação: URL pública definitiva registrada no README e na homepage"
+      "Aplicação publicada: https://desenvolvimento-full-stack-roteiro.vercel.app",
+      "Checklist homologado: [✓] Menu de âncoras | [✓] Filtro por tecnologia | [✓] Busca em tempo real",
+      "Checklist homologado: [✓] Modal com Escape | [✓] Formulário com validação | [✓] Tema claro/escuro persistente | [✓] Responsividade"
     ],
-    status: "Planejada"
+    status: "Concluída"
   }
 ];
