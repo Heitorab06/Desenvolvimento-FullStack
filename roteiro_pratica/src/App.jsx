@@ -11,6 +11,10 @@ export default function App() {
 
   const tecnologiasFiltro = ['Todos', 'HTML', 'CSS', 'React', 'Git', 'Vercel'];
 
+  // Contador de progresso derivado (Card 19)
+  const totalAtividades = listaAtividades.length;
+  const concluidas = listaAtividades.filter((item) => item.status === 'Concluída').length;
+
   const atividadesFiltradas = listaAtividades.filter((item) => {
     const matchTec =
       filtroTecnologia === 'Todos' ||
@@ -57,6 +61,14 @@ export default function App() {
           <h2 style={{ fontSize: '1.4rem', color: '#1f2937', marginBottom: '1rem' }}>
             Lista de Atividades (1 a 30)
           </h2>
+
+          {/* Contador de Progresso (Card 19) */}
+          <div className="progresso-container">
+            <div className="progresso-cabecalho">
+              <span className="progresso-titulo">Progresso das Atividades</span>
+              <span className="progresso-contador">{concluidas} concluídas de {totalAtividades}</span>
+            </div>
+          </div>
 
           {/* Busca por Texto (Card 18) */}
           <div className="busca-container">

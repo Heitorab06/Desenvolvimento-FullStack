@@ -193,6 +193,33 @@
   font-size: 1rem;
 }
 
+/* Progresso (Cards 19 e 20) */
+.progresso-container {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.progresso-cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.progresso-titulo {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.progresso-contador {
+  font-weight: 700;
+  color: var(--primary);
+}
+
 /* Estilos dos Cartões de Atividades (Card 7) */
 .card-atividade {
   background-color: var(--bg-card);
