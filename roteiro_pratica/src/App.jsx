@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 import Cabecalho from './components/Cabecalho';
 import Rodape from './components/Rodape';
@@ -7,8 +7,25 @@ import ModalDetalhes from './components/ModalDetalhes';
 import Contato from './components/Contato';
 import { listaAtividades } from './data/atividades';
 
+const CHAVE_TEMA = 'tema_portfolio';
+
 export default function App() {
-  const [tema, setTema] = useState('light');
+  const [tema, setTema] = useState(() => {
+    try {
+      return localStorage.getItem(CHAVE_TEMA) || 'light';
+    } catch {
+      return 'light';
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(CHAVE_TEMA, tema);
+    } catch (e) {
+      console.warn('Erro ao salvar tema no localStorage', e);
+    }
+  }, [tema]);
+
   const [filtroTecnologia, setFiltroTecnologia] = useState('Todos');
   const [busca, setBusca] = useState('');
   const [atividadeModal, setAtividadeModal] = useState(null);
