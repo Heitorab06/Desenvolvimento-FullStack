@@ -21,9 +21,10 @@ export const listaAtividades = [
     tecnologias: ["Git"],
     link: "#atividade-02",
     versoes: [
-      "Repositório: Inicializado com git init",
-      "Branch principal: main",
-      ".gitignore: configurado para node_modules e dist"
+      "Repositório: Inicializado localmente com git init para controle de versão.",
+      "Branch principal: Padronizada como main para o fluxo de trabalho.",
+      "Commit: Registro de alterações atômicas com histórico semântico.",
+      ".gitignore: Configurado e validado para ignorar node_modules, dist e arquivos de ambiente."
     ],
     status: "Repositório Git inicializado e primeiro commit registrado com sucesso."
   },

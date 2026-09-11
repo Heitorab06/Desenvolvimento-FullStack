@@ -29,6 +29,7 @@ export default function App() {
             descricao={item.descricao}
             tecnologias={item.tecnologias}
             link={item.link}
+            versoes={item.versoes}
           >
           </Card>
         ))}

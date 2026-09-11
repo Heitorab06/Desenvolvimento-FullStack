@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-export default function Card({ id, titulo, descricao, tecnologias, link, children }) {
+export default function Card({ id, titulo, descricao, tecnologias, link, versoes, children }) {
   const numeroFormatado = String(id).padStart(2, '0');
 
   return (
@@ -48,6 +48,24 @@ export default function Card({ id, titulo, descricao, tecnologias, link, childre
           {tecnologias.join(', ')}
         </span>
       </div>
+
+      {/* Evidência / Detalhes */}
+      {versoes && versoes.length > 0 && (
+        <div style={{
+          backgroundColor: '#f8fafc',
+          border: '1px solid #e2e8f0',
+          borderRadius: '6px',
+          padding: '0.75rem 1rem',
+          fontSize: '0.875rem'
+        }}>
+          <strong style={{ display: 'block', marginBottom: '0.25rem', color: '#334155' }}>Evidência:</strong>
+          <ul style={{ margin: 0, paddingLeft: '1.25rem', color: '#475569', lineHeight: '1.4' }}>
+            {versoes.map((v, idx) => (
+              <li key={idx}>{v}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* Espaço dinâmico para evidências (children) */}
       {children && (
