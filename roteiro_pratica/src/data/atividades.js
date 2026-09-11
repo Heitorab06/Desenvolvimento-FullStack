@@ -402,13 +402,13 @@ export const listaAtividades = [
     titulo: "Enviar o projeto ao repositório remoto",
     descricao: "Vinculação do repositório local a uma plataforma remota, envio das branches de trabalho e validação pública dos arquivos.",
     tecnologias: ["Git Remoto", "GitHub / GitLab"],
-    link: "#atividade-29",
+    link: "https://github.com/Heitorab06/Desenvolvimento-FullStack",
     versoes: [
-      "Vinculação remota: git remote add origin",
-      "Envio de dados: git push da branch main e da tag v1.0.0",
-      "Verificação: Teste de clonagem e integridade em janela anônima"
+      "Repositório remoto: https://github.com/Heitorab06/Desenvolvimento-FullStack",
+      "Sincronização: Branch main e tag v1.0.0 associadas ao repositório remoto.",
+      "Validação pública: Código e estrutura do projeto conferidos publicamente."
     ],
-    status: "Planejada"
+    status: "Concluída"
   },
   {
     id: 30,
