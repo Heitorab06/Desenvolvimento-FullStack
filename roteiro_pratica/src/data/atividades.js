@@ -13,7 +13,7 @@ export const listaAtividades = [
       "Git: v2.x",
       "Vite 5.x / React 18"
     ],
-    status: "Ambiente configurado com sucesso e pronto para o desenvolvimento!"
+    status: "Concluída"
   },
 {
     id: 2,
@@ -28,7 +28,7 @@ export const listaAtividades = [
       "Commit: Registro de alterações atômicas com histórico semântico.",
       ".gitignore: Configurado e validado para ignorar node_modules, dist e arquivos de ambiente."
     ],
-    status: "Repositório Git inicializado e primeiro commit registrado com sucesso."
+    status: "Concluída"
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ export const listaAtividades = [
       "Hierarquia: Apenas um <h1> principal na página",
       "Layout: Área reservada para a listagem das 30 atividades"
     ],
-    status: "Marcação semântica estruturada de acordo com as diretrizes da W3C."
+    status: "Concluída"
   },
   {
     id: 4,
@@ -56,7 +56,7 @@ export const listaAtividades = [
       "Avatar: Imagem com texto alternativo (alt) descritivo",
       "Ação: Botão de rolagem direta para a seção de atividades"
     ],
-    status: "Cabeçalho e identidade visual implementados e documentados."
+    status: "Concluída"
   },
   {
     id: 5,
@@ -70,7 +70,7 @@ export const listaAtividades = [
       "Efeito de transição: Rolagem suave (scroll-behavior: smooth)",
       "Acessibilidade: Indicador visual claro de foco (:focus)"
     ],
-    status: "Navegação por âncoras testada e 100% funcional."
+    status: "Concluída"
   },
   {
     id: 6,
@@ -84,7 +84,7 @@ export const listaAtividades = [
       "Tipografia: Escala tipográfica definida para títulos e corpo",
       "Reset: Aplicação global de box-sizing: border-box"
     ],
-    status: "Base visual padronizada com variáveis CSS nativas."
+    status: "Concluída"
   },
   {
     id: 7,
@@ -98,7 +98,7 @@ export const listaAtividades = [
       "Estados visuais: Hover e focus com transições suaves",
       "Contraste: Relação de cores validada para legibilidade"
     ],
-    status: "Componente de cartão construído com estados visuais validados."
+    status: "Concluída"
   },
   {
     id: 8,
@@ -112,7 +112,7 @@ export const listaAtividades = [
       "Espaçamento: gap para distribuição proporcional sem margens manuais",
       "Aplicação: Menu de navegação e alinhamentos do cabeçalho"
     ],
-    status: "Alinhamentos flexíveis aplicados e testados com sucesso."
+    status: "Concluída"
   },
   {
     id: 9,
@@ -126,7 +126,7 @@ export const listaAtividades = [
       "Espaçamento da grade: gap consistente entre colunas e linhas",
       "Prevenção: Zero rolagem horizontal em telas pequenas"
     ],
-    status: "Grade de atividades adaptável e responsiva estruturada."
+    status: "Concluída"
   },
   {
     id: 10,
@@ -140,7 +140,7 @@ export const listaAtividades = [
       "Tablets: Testado em ~768px",
       "Telas desktop: Testado em ~1440px"
     ],
-    status: "Breakpoints configurados e interface adaptada a diferentes resoluções."
+    status: "Concluída"
   },
   {
     id: 11,
@@ -154,7 +154,7 @@ export const listaAtividades = [
       "Responsabilidade: Exibir título, introdução e identidade",
       "Ponto de uso: Importado e renderizado em App.jsx"
     ],
-    status: "Cabeçalho isolado em componente sem duplicação de lógica."
+    status: "Concluída"
   },
   {
     id: 12,
@@ -168,7 +168,7 @@ export const listaAtividades = [
       "Lógica dinâmica: new Date().getFullYear() encapsulado",
       "Navegação: Link funcional de retorno para o topo da página"
     ],
-    status: "Rodapé componentizado e integrado à raiz da aplicação."
+    status: "Concluída"
   },
   {
     id: 13,
@@ -182,7 +182,7 @@ export const listaAtividades = [
       "Props mapeadas: id/numero, titulo, descricao, tecnologias, link",
       "Reutilização: Capacidade de renderizar qualquer atividade do roteiro"
     ],
-    status: "Componente base parametrizável via props construído e testado."
+    status: "Concluída"
   },
   {
     id: 14,
@@ -224,7 +224,7 @@ export const listaAtividades = [
       "Mapeamento visual: Indicadores de cores e badges contextuais",
       "Arquitetura: Regras de exibição desacopladas da marcação JSX"
     ],
-    status: "Renderização condicional de status implementada nos cards."
+    status: "Concluída"
   },
   {
     id: 17,
@@ -238,7 +238,7 @@ export const listaAtividades = [
       "Gerenciador de estado: useState controlando a categoria ativa",
       "Princípio: Filtragem derivada sem mutação do array original"
     ],
-    status: "Filtro dinâmico por categorias de tecnologias operacional."
+    status: "Concluída"
   },
   {
     id: 18,
@@ -252,7 +252,7 @@ export const listaAtividades = [
       "Tratamento de entrada: Input text com onChange vinculado a estado",
       "Estado vazio: Mensagem exibida caso nenhum card corresponda ao termo"
     ],
-    status: "Busca textual interativa integrada à lista de atividades."
+    status: "Concluída"
   },
   {
     id: 19,
@@ -266,7 +266,7 @@ export const listaAtividades = [
       "Formato de exibição: X de 30 concluídas",
       "Otimização: Estado derivado calculado diretamente na renderização"
     ],
-    status: "Contador numérico de progresso sincronizado com os dados."
+    status: "Concluída"
   },
   {
     id: 20,
@@ -280,7 +280,7 @@ export const listaAtividades = [
       "Atributos acessíveis: role='progressbar', aria-valuenow, aria-valuemax",
       "Limites testados: Renderização proporcional e validada em 0% e 100%"
     ],
-    status: "Barra de progresso acessível sincronizada com o contador."
+    status: "Concluída"
   },
   {
     id: 21,
@@ -294,7 +294,7 @@ export const listaAtividades = [
       "Controles de fechamento: Botão fechar, clique fora do modal e tecla Escape",
       "Acessibilidade: Manutenção de foco e legibilidade para navegação por teclado"
     ],
-    status: "Modal de detalhes interativo e acessível implementado."
+    status: "Concluída"
   },
   {
     id: 22,
@@ -308,7 +308,7 @@ export const listaAtividades = [
       "Validação e acessibilidade: Labels devidamente associados e atributo required",
       "Tratamento de submissão: e.preventDefault() com mensagem de confirmação"
     ],
-    status: "Formulário de contato validado com prevenção de reload."
+    status: "Concluída"
   },
   {
     id: 23,
@@ -322,7 +322,7 @@ export const listaAtividades = [
       "Mecanismo: Aplicação de classes ou atributos de tema no elemento raiz",
       "Critério de qualidade: Contraste mínimo preservado em ambos os modos"
     ],
-    status: "Alternância entre modos claro e escuro implementada com sucesso."
+    status: "Concluída"
   },
   {
     id: 24,
@@ -336,7 +336,7 @@ export const listaAtividades = [
       "Ciclo de leitura: Recuperação da preferência no primeiro carregamento",
       "Fallback: Tema padrão aplicado caso não existam dados gravados"
     ],
-    status: "Preferência visual do usuário persistida localmente no navegador."
+    status: "Concluída"
   },
   {
     id: 25,
@@ -350,7 +350,7 @@ export const listaAtividades = [
       "Conteúdo: Perfil acadêmico, competências adquiridas e objetivos",
       "Conexões externas: Links profissionais com atributos target e rel seguros"
     ],
-    status: "Seção de perfil profissional adicionada e vinculada ao menu."
+    status: "Concluída"
   },
   {
     id: 26,
@@ -364,7 +364,7 @@ export const listaAtividades = [
       "Mídias: Atributos alt descritivos em todas as imagens",
       "Navegabilidade: Indicadores de foco visíveis e checagem de contraste"
     ],
-    status: "Auditoria de acessibilidade concluída com 5 correções documentadas."
+    status: "Concluída"
   },
   {
     id: 27,
@@ -378,7 +378,7 @@ export const listaAtividades = [
       "Estrutura: Mapeamento detalhado das principais pastas do projeto",
       "Metadados: Identificação do autor e links para repositório e deploy"
     ],
-    status: "Documentação README.md estruturada na raiz do projeto."
+    status: "Em andamento"
   },
   {
     id: 28,
@@ -392,7 +392,7 @@ export const listaAtividades = [
       "Limpeza: Confirmação da ausência de arquivos temporários e dependências",
       "Marcação de versão: Tag local v1.0.0 criada com sucesso"
     ],
-    status: "Histórico de commits validado e tag v1.0.0 gerada."
+    status: "Em andamento"
   },
   {
     id: 29,
@@ -406,7 +406,7 @@ export const listaAtividades = [
       "Envio de dados: git push da branch main e da tag v1.0.0",
       "Verificação: Teste de clonagem e integridade em janela anônima"
     ],
-    status: "Repositório remoto sincronizado com código e tags publicados."
+    status: "Planejada"
   },
   {
     id: 30,
@@ -420,6 +420,6 @@ export const listaAtividades = [
       "Auditoria funcional: Teste de filtros, busca, responsividade e modais",
       "Homologação: URL pública definitiva registrada no README e na homepage"
     ],
-    status: "Aplicação publicada em produção e 100% homologada na Vercel."
+    status: "Planejada"
   }
 ];

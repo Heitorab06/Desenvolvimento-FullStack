@@ -1,4 +1,14 @@
-﻿export default function CardAtividade({
+const CONFIG_STATUS = {
+  'Concluída': { classe: 'status-concluida', rotulo: '✓ Concluída' },
+  'Em andamento': { classe: 'status-andamento', rotulo: '⏳ Em andamento' },
+  'Planejada': { classe: 'status-planejada', rotulo: '📋 Planejada' }
+};
+
+function getStatusConfig(status) {
+  return CONFIG_STATUS[status] || CONFIG_STATUS['Concluída'];
+}
+
+export default function CardAtividade({
   numero,
   titulo,
   descricao,
@@ -11,16 +21,20 @@
 }) {
   const numFormatado = String(numero || '').padStart(2, '0');
   const listaTecs = tecnologias || (tecnologia ? [tecnologia] : []);
+  const statusInfo = getStatusConfig(status);
 
   return (
     <article className="card-atividade">
-      <div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.25rem' }}>
         <span className="card-badge-num">
           Atividade {numFormatado}
         </span>
-        <h3 className="card-titulo">{titulo}</h3>
+        <span className={`badge-status ${statusInfo.classe}`}>
+          {statusInfo.rotulo}
+        </span>
       </div>
 
+      <h3 className="card-titulo">{titulo}</h3>
       <p className="card-descricao">{descricao}</p>
 
       <div>
@@ -36,6 +50,13 @@
               <li key={idx}>{v}</li>
             ))}
           </ul>
+          {numero === 16 && (
+            <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.75rem', flexWrap: 'wrap' }}>
+              <span className="badge-status status-concluida">✓ Concluída</span>
+              <span className="badge-status status-andamento">⏳ Em andamento</span>
+              <span className="badge-status status-planejada">📋 Planejada</span>
+            </div>
+          )}
         </div>
       )}
 
