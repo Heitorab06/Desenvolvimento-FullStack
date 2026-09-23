@@ -1,0 +1,11 @@
+﻿-- Criando o banco de dados
+CREATE DATABASE IF NOT EXISTS cadastro_db;
+USE cadastro_db;
+
+-- Criando a tabela de usuarios
+CREATE TABLE IF NOT EXISTS usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(150) NOT NULL UNIQUE,
+  criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
