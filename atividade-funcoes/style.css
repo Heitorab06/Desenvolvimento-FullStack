@@ -1,0 +1,98 @@
+/* Estilo simples e organizado */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 20px auto;
+    max-width: 500px;
+    color: #222;
+    background-color: #f7f7f7;
+}
+
+h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #bbb;
+}
+
+section {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 14px;
+    margin-bottom: 16px;
+}
+
+h2 {
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 4px;
+}
+
+label {
+    display: block;
+    font-size: 13px;
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+
+input, select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px;
+    font-size: 13px;
+    border: 1px solid #999;
+    margin-bottom: 6px;
+}
+
+button {
+    display: block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid #888;
+    background-color: #e9e9e9;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+.resultado {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 16px;
+}
+
+pre.resultado {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-family: monospace;
+    font-weight: normal;
+    white-space: pre-wrap;
+}
+
+.botoes-inline {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+}
+
+.botoes-inline button {
+    display: inline-block;
+    margin-top: 0;
+}
+
+#caixa-cor {
+    margin-top: 10px;
+    padding: 12px;
+    border: 1px dashed #999;
+    text-align: center;
+    font-size: 13px;
+    background-color: #fff;
+}

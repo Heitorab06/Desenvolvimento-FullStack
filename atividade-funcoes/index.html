@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade - Funções</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Atividade: Funções em JavaScript</h1>
+
+    <!-- 1. IMC -->
+    <section>
+        <h2>1. Calcular IMC</h2>
+        <label for="imc-peso">Peso (kg):</label>
+        <input type="number" id="imc-peso" step="0.1" placeholder="Ex: 70">
+        
+        <label for="imc-altura">Altura (m):</label>
+        <input type="number" id="imc-altura" step="0.01" placeholder="Ex: 1.75">
+        
+        <button onclick="testarIMC()">Calcular IMC</button>
+        <p class="resultado" id="resultado-imc"></p>
+    </section>
+
+    <!-- 2. Conta -->
+    <section>
+        <h2>2. Calcular Conta</h2>
+        <label for="conta-consumo">Consumo:</label>
+        <input type="number" id="conta-consumo" step="0.01" placeholder="Ex: 100">
+        
+        <label for="conta-tarifa">Tarifa (R$):</label>
+        <input type="number" id="conta-tarifa" step="0.01" placeholder="Ex: 0.85">
+        
+        <button onclick="testarConta()">Calcular Conta</button>
+        <p class="resultado" id="resultado-conta"></p>
+    </section>
+
+    <!-- 3. Contar Pares -->
+    <section>
+        <h2>3. Contar Pares</h2>
+        <label for="pares-numeros">Números (separados por vírgula):</label>
+        <input type="text" id="pares-numeros" placeholder="Ex: 1, 2, 3, 4, 5, 6">
+        
+        <button onclick="testarPares()">Contar Pares</button>
+        <p class="resultado" id="resultado-pares"></p>
+    </section>
+
+    <!-- 4. Cadastrar Aluno -->
+    <section>
+        <h2>4. Cadastrar Aluno</h2>
+        <label for="aluno-nome">Nome do Aluno:</label>
+        <input type="text" id="aluno-nome" placeholder="Ex: Maria">
+        
+        <label for="aluno-curso">Curso:</label>
+        <input type="text" id="aluno-curso" placeholder="Ex: Desenvolvimento Web">
+        
+        <label for="aluno-notas">Notas (separadas por vírgula):</label>
+        <input type="text" id="aluno-notas" placeholder="Ex: 7.5, 8.0, 9.5">
+        
+        <button onclick="testarAluno()">Cadastrar Aluno</button>
+        <pre class="resultado" id="resultado-aluno"></pre>
+    </section>
+
+    <!-- 5. Operação por Parâmetro (Calculadora) -->
+    <section>
+        <h2>5. Operação por Parâmetro</h2>
+        <label for="calc-n1">Primeiro Número:</label>
+        <input type="number" id="calc-n1" placeholder="Digite o primeiro número">
+
+        <label for="calc-op">Operação:</label>
+        <select id="calc-op">
+            <option value="+">Soma (+)</option>
+            <option value="-">Subtração (-)</option>
+            <option value="*">Multiplicação (*)</option>
+            <option value="/">Divisão (/)</option>
+        </select>
+
+        <label for="calc-n2">Segundo Número:</label>
+        <input type="number" id="calc-n2" placeholder="Digite o segundo número">
+
+        <button onclick="testarCalculadora()">Calcular Operação</button>
+        <p class="resultado" id="resultado-calc"></p>
+    </section>
+
+    <!-- 6. Enviar Cor como Argumento -->
+    <section>
+        <h2>6. Enviar Cor por Argumento</h2>
+        <p style="font-size: 13px; margin: 4px 0 10px 0;">Clique em um botão para enviar a cor como argumento para a função <code>mudarCor(cor)</code>:</p>
+        <div class="botoes-inline">
+            <button onclick="mudarCor('lightblue')">Azul Claro</button>
+            <button onclick="mudarCor('lightgreen')">Verde Claro</button>
+            <button onclick="mudarCor('lightcoral')">Vermelho Claro</button>
+            <button onclick="mudarCor('khaki')">Amarelo</button>
+        </div>
+        <div id="caixa-cor">Nenhuma cor aplicada ainda</div>
+    </section>
+
+    <script src="funcoes.js"></script>
+</body>
+</html>
