@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laboratório de Hash SHA-256</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Laboratório de Hash SHA-256</h1>
+      <p>Demonstração prática de integridade criptográfica e efeito avalanche.</p>
+    </header>
+
+    <!-- Bloco 1: Geração Primária -->
+    <section class="card">
+      <h2>1. Gerar Hash do Dado Original</h2>
+      
+      <div class="form-group">
+        <div class="label-row">
+          <label for="entrada-1">Texto original:</label>
+          <span id="contador-1" class="counter">0 caracteres</span>
+        </div>
+        <textarea id="entrada-1" rows="3" placeholder="Digite uma informação..."></textarea>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="btn-gerar-1" class="btn btn-primary">Gerar SHA-256</button>
+        <button type="button" id="btn-limpar-1" class="btn btn-secondary">Limpar</button>
+      </div>
+
+      <div class="output-group">
+        <label>SHA-256 em hexadecimal (64 caracteres):</label>
+        <div class="hash-display-wrapper">
+          <code id="hash-1" class="hash-display">—</code>
+          <button type="button" id="btn-copiar-1" class="btn btn-small" disabled>Copiar</button>
+        </div>
+      </div>
+      <p id="msg-1" class="message" aria-live="polite"></p>
+    </section>
+
+    <!-- Bloco 2: Teste de Integridade / Comparação -->
+    <section class="card">
+      <h2>2. Teste de Integridade (Comparação)</h2>
+      <p class="section-desc">Insira novamente o dado ou uma versão modificada para testar se os hashes coincidem.</p>
+
+      <div class="form-group">
+        <div class="label-row">
+          <label for="entrada-2">Texto para verificação:</label>
+          <span id="contador-2" class="counter">0 caracteres</span>
+        </div>
+        <textarea id="entrada-2" rows="3" placeholder="Insira o texto para checar integridade..."></textarea>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="btn-gerar-2" class="btn btn-primary">Gerar e Comparar</button>
+        <button type="button" id="btn-limpar-2" class="btn btn-secondary">Limpar</button>
+      </div>
+
+      <div class="output-group">
+        <label>Segundo SHA-256:</label>
+        <div class="hash-display-wrapper">
+          <code id="hash-2" class="hash-display">—</code>
+          <button type="button" id="btn-copiar-2" class="btn btn-small" disabled>Copiar</button>
+        </div>
+      </div>
+
+      <!-- Veredito de Integridade -->
+      <div id="resultado-comparacao" class="status-box hidden" role="alert"></div>
+      <p id="msg-2" class="message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
