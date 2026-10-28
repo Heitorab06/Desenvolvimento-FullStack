@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SUCELSO TECH | Sistema Inteligente de Horários Escolares</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --primary: #38bdf8;
+      --success: #22c55e;
+      --warning: #eab308;
+      --danger: #ef4444;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+    }
+    * { box-sizing: border-box; font-family: 'Segoe UI', system-ui, sans-serif; }
+    body { margin: 0; background: var(--bg); color: var(--text); }
+    header {
+      background: #020617; border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
+    }
+    .badge {
+      padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600;
+      background: rgba(56, 189, 248, 0.15); color: var(--primary); border: 1px solid var(--primary);
+    }
+    main { max-width: 1200px; margin: 1.5rem auto; padding: 0 1rem; }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 0.75rem; padding: 1.25rem; margin-bottom: 1.25rem;
+    }
+    h2, h3 { margin-top: 0; }
+    button, select, input {
+      padding: 0.55rem 0.9rem; border-radius: 0.5rem; border: 1px solid var(--border);
+      background: #0f172a; color: var(--text); font-size: 0.9rem;
+    }
+    button {
+      background: var(--primary); color: #020617; font-weight: 600; border: none; cursor: pointer;
+    }
+    button:hover { opacity: 0.9; }
+    button.success { background: var(--success); color: #022c22; }
+    button.secondary { background: #334155; color: var(--text); }
+    .row { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; margin-bottom: 1rem; }
+    table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; }
+    th, td { border: 1px solid var(--border); padding: 0.65rem; text-align: left; font-size: 0.88rem; }
+    th { background: #020617; color: var(--primary); }
+    .status-msg { padding: 0.75rem; border-radius: 0.5rem; margin-bottom: 1rem; display: none; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <strong>SUCELSO TECH</strong> — Sistema Inteligente de Horários Escolares
+    </div>
+    <div id="userInfo" class="row" style="margin:0;"></div>
+  </header>
+
+  <main>
+    <div id="alerta" class="status-msg"></div>
+
+    <!-- TELA DE LOGIN -->
+    <section id="loginSection" class="card">
+      <h2>Acesso ao Sistema (Módulo 1)</h2>
+      <p style="color: var(--muted);">Selecione um usuário cadastrado no Supabase ou digite o e-mail para autenticar:</p>
+      <div class="row">
+        <select id="selectUsuarioDemo" onchange="document.getElementById('emailInput').value = this.value">
+          <option value="">-- Selecionar Conta de Teste (Coordenador / Professor / Aluno) --</option>
+        </select>
+        <input type="email" id="emailInput" placeholder="Ex: coordenador@sucelso.tech" style="min-width: 280px;" />
+        <button onclick="fazerLogin()">Entrar</button>
+      </div>
+    </section>
+
+    <!-- PAINEL DO COORDENADOR -->
+    <section id="painelCoordenador" class="card hidden">
+      <h2>Painel do Coordenador (Módulos 4 e 6)</h2>
+      <div class="row">
+        <button onclick="gerarGrade()">⚡ Gerar Proposta Automática de Grade</button>
+        <button class="success" onclick="publicarUltimaVersao()">✅ Aprovar e Publicar Versão Atual</button>
+        <button class="secondary" onclick="verificarConflitos()">🔍 Relatório de Conflitos</button>
+      </div>
+      <div id="resultadoConflitos"></div>
+
+      <hr style="border-color: var(--border); margin: 1rem 0;" />
+      <h3>Ajuste Manual de Alocação</h3>
+      <div class="row">
+        <input type="number" id="editHorarioId" placeholder="ID da Aula (#)" style="width: 140px;" />
+        <select id="editDia">
+          <option value="Segunda-feira">Segunda-feira</option>
+          <option value="Terça-feira">Terça-feira</option>
+          <option value="Quarta-feira">Quarta-feira</option>
+          <option value="Quinta-feira">Quinta-feira</option>
+          <option value="Sexta-feira">Sexta-feira</option>
+        </select>
+        <select id="editSala"></select>
+        <button onclick="salvarEdicaoHorario()">Salvar Alteração</button>
+      </div>
+    </section>
+
+    <!-- PAINEL DO PROFESSOR (DISPONIBILIDADE) -->
+    <section id="painelProfessor" class="card hidden">
+      <h2>Minha Disponibilidade Docente (Módulo 3)</h2>
+      <div class="row">
+        <select id="dispDia">
+          <option value="Segunda-feira">Segunda-feira</option>
+          <option value="Terça-feira">Terça-feira</option>
+          <option value="Quarta-feira">Quarta-feira</option>
+          <option value="Quinta-feira">Quinta-feira</option>
+          <option value="Sexta-feira">Sexta-feira</option>
+        </select>
+        <input type="time" id="dispInicio" value="08:00" />
+        <input type="time" id="dispFim" value="12:00" />
+        <button onclick="registrarDisponibilidade()">+ Registrar Disponibilidade</button>
+      </div>
+      <div id="listaDisponibilidades"></div>
+    </section>
+
+    <!-- VISUALIZAÇÃO DE HORÁRIOS -->
+    <section id="painelHorarios" class="card hidden">
+      <div class="row" style="justify-content: space-between;">
+        <h2 style="margin:0;">Grade de Horários (Módulo 5)</h2>
+        <div class="row" style="margin:0;">
+          <select id="filtroTurma" class="hidden" onchange="carregarHorarios()"></select>
+          <span id="badgeVersao" class="badge">Sem versão</span>
+        </div>
+      </div>
+      <div id="tabelaHorariosContainer"></div>
+    </section>
+  </main>
+
+  <script>
+    // Quando hospedar na Vercel, troque '' pela URL da sua API no Render, ex: 'https://sucelso-api.onrender.com'
+    const API_BASE_URL = window.location.hostname.includes('vercel.app')
+      ? 'https://SEU-BACKEND.onrender.com'
+      : '';
+
+    let sessao = null;
+    let versaoAtualId = null;
+
+    function mostrarMensagem(texto, cor = '#38bdf8') {
+      const el = document.getElementById('alerta');
+      el.style.display = 'block';
+      el.style.border = `1px solid ${cor}`;
+      el.style.background = 'rgba(15, 23, 42, 0.9)';
+      el.textContent = texto;
+    }
+
+    async function api(caminho, opcoes = {}) {
+      const headers = { 'Content-Type': 'application/json', ...(opcoes.headers || {}) };
+      if (sessao?.usuario?.email) headers['x-user-email'] = sessao.usuario.email;
+      const resp = await fetch(`${API_BASE_URL}${caminho}`, { ...opcoes, headers });
+      const dados = await resp.json();
+      if (!resp.ok) throw new Error(dados.erro || 'Erro na requisição');
+      return dados;
+    }
+
+    async function carregarUsuariosDemo() {
+      try {
+        const usuarios = await api('/api/usuarios-demo');
+        const sel = document.getElementById('selectUsuarioDemo');
+        usuarios.forEach(u => {
+          const opt = document.createElement('option');
+          opt.value = u.email;
+          opt.textContent = `[${u.perfil}] ${u.nome} (${u.email})`;
+          sel.appendChild(opt);
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    }
+
+    async function fazerLogin() {
+      const email = document.getElementById('emailInput').value.trim();
+      try {
+        sessao = await api('/api/login', { method: 'POST', body: JSON.stringify({ email }) });
+        document.getElementById('loginSection').classList.add('hidden');
+        document.getElementById('painelHorarios').classList.remove('hidden');
+
+        document.getElementById('userInfo').innerHTML = `
+          <span>${sessao.usuario.nome}</span>
+          <span class="badge">${sessao.usuario.perfil}</span>
+          <button class="secondary" onclick="location.reload()">Sair</button>
+        `;
+
+        if (sessao.usuario.perfil === 'Coordenador') {
+          document.getElementById('painelCoordenador').classList.remove('hidden');
+          await carregarFiltrosCoordenador();
+        } else if (sessao.usuario.perfil === 'Professor') {
+          document.getElementById('painelProfessor').classList.remove('hidden');
+          await carregarDisponibilidades();
+        }
+
+        await carregarHorarios();
+        mostrarMensagem(`Bem-vindo(a), ${sessao.usuario.nome}! Perfil: ${sessao.usuario.perfil}`, '#22c55e');
+      } catch (e) {
+        mostrarMensagem(e.message, '#ef4444');
+      }
+    }
+
+    async function carregarFiltrosCoordenador() {
+      const [turmas, salas] = await Promise.all([api('/api/turmas'), api('/api/salas')]);
+      const selTurma = document.getElementById('filtroTurma');
+      selTurma.classList.remove('hidden');
+      selTurma.innerHTML = '<option value="">Todas as Turmas</option>' +
+        turmas.map(t => `<option value="${t.id}">${t.nome} (${t.turno})</option>`).join('');
+
+      const selSala = document.getElementById('editSala');
+      selSala.innerHTML = salas.map(s => `<option value="${s.id}">${s.identificacao}</option>`).join('');
+    }
+
+    async function carregarHorarios() {
+      try {
+        let endpoint = '/api/horarios/minha-turma';
+        if (sessao.usuario.perfil === 'Professor') {
+          endpoint = '/api/horarios/professor';
+        } else if (sessao.usuario.perfil === 'Coordenador') {
+          const turmaId = document.getElementById('filtroTurma').value;
+          if (turmaId) endpoint += `?turma_id=${turmaId}`;
+        }
+
+        const res = await api(endpoint);
+        versaoAtualId = res.versao?.id || null;
+        document.getElementById('badgeVersao').textContent = res.versao
+          ? `Versão #${res.versao.id} (${res.versao.status.toUpperCase()})`
+          : 'Nenhuma versão ativa';
+
+        const lista = res.horarios || [];
+        if (lista.length === 0) {
+          document.getElementById('tabelaHorariosContainer').innerHTML =
+            `<p style="color:var(--muted);">${res.mensagem || 'Nenhum horário alocado nesta visualização.'}</p>`;
+          return;
+        }
+
+        document.getElementById('tabelaHorariosContainer').innerHTML = `
+          <table>
+            <thead>
+              <tr>
+                <th>#ID</th>
+                <th>Dia</th>
+                <th>Horário</th>
+                <th>Turma</th>
+                <th>Disciplina</th>
+                <th>Professor</th>
+                <th>Sala</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${lista.map(h => `
+                <tr>
+                  <td>#${h.id}</td>
+                  <td>${h.dia}</td>
+                  <td>${h.inicio.slice(0, 5)} - ${h.fim.slice(0, 5)}</td>
+                  <td>${h.turmas?.nome || '-'}</td>
+                  <td><strong>${h.disciplinas?.nome || '-'}</strong> (${h.disciplinas?.codigo || ''})</td>
+                  <td>${h.professores?.usuarios?.nome || '-'}</td>
+                  <td>${h.salas?.identificacao || '-'}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        `;
+      } catch (e) {
+        mostrarMensagem(e.message, '#ef4444');
+      }
+    }
+
+    async function carregarDisponibilidades() {
+      const lista = await api('/api/disponibilidades');
+      document.getElementById('listaDisponibilidades').innerHTML = `
+        <table>
+          <thead><tr><th>ID</th><th>Dia</th><th>Início</th><th>Fim</th></tr></thead>
+          <tbody>
+            ${lista.map(d => `
+              <tr>
+                <td>#${d.id}</td>
+                <td>${d.dia}</td>
+                <td>${d.inicio.slice(0, 5)}</td>
+                <td>${d.fim.slice(0, 5)}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      `;
+    }
+
+    async function registrarDisponibilidade() {
+      try {
+        const dia = document.getElementById('dispDia').value;
+        const inicio = document.getElementById('dispInicio').value + ':00';
+        const fim = document.getElementById('dispFim').value + ':00';
+        const res = await api('/api/disponibilidades', {
+          method: 'POST',
+          body: JSON.stringify({ dia, inicio, fim })
+        });
+        mostrarMensagem(res.mensagem, '#22c55e');
+        await carregarDisponibilidades();
+      } catch (e) {
+        mostrarMensagem(e.message, '#ef4444');
+      }
+    }
+
+    async function gerarGrade() {
+      try {
+        const res = await api('/api/horarios/gerar', { method: 'POST', body: JSON.stringify({ periodo: '2026.1' }) });
+        mostrarMensagem(`${res.mensagem} (${res.total_alocacoes} aulas alocadas na Versão #${res.versao.id})`, '#22c55e');
+        await carregarHorarios();
+      } catch (e) {
+        mostrarMensagem(e.message, '#ef4444');
+      }
+    }
+
+    async function publicarUltimaVersao() {
+      if (!versaoAtualId) return mostrarMensagem('Gere uma proposta de grade primeiro!', '#eab308');
+      try {
+        const res = await api(`/api/horarios/versoes/${versaoAtualId}/publicar`, { method: 'POST' });
+        mostrarMensagem(res.mensagem, '#22c55e');
+        await carregarHorarios();
+      } catch (e) {
+        mostrarMensagem(e.message, '#ef4444');
+      }
+    }
+
+    async function salvarEdicaoHorario() {
+      const id = document.getElementById('editHorarioId').value;
+      const dia = document.getElementById('editDia').value;
+      const sala_id = document.getElementById('editSala').value;
+      if (!id) return mostrarMensagem('Informe o ID da aula (#ID) para editar.', '#eab308');
+      try {
+        const res = await api(`/api/horarios/${id}`, {
+          method: 'PUT',
+          body: JSON.stringify({ dia, sala_id })
+        });
+        mostrarMensagem(res.mensagem, '#22c55e');
+        await carregarHorarios();
+      } catch (e) {
+        mostrarMensagem(e.message, '#ef4444');
+      }
+    }
+
+    async function verificarConflitos() {
+      try {
+        const res = await api('/api/horarios/conflitos');
+        if (res.conflitos.length === 0) {
+          document.getElementById('resultadoConflitos').innerHTML =
+            `<p style="color:var(--success);">✅ Nenhum conflito detectado na Versão #${res.versao?.id}!</p>`;
+        } else {
+          document.getElementById('resultadoConflitos').innerHTML = `
+            <ul style="color:var(--warning);">
+              ${res.conflitos.map(c => `<li><strong>[${c.tipo}]</strong> ${c.descricao}</li>`).join('')}
+            </ul>
+          `;
+        }
+      } catch (e) {
+        mostrarMensagem(e.message, '#ef4444');
+      }
+    }
+
+    carregarUsuariosDemo();
+  </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "conexao-supabase-node",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test:api": "node teste.js",
+    "test:db": "node index.js",
+    "diagnostico": "node diagnostico.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.8",
+    "express": "^5.3.0",
+    "pg": "^8.23.1"
+  }
+}
